@@ -52,7 +52,7 @@ export const Pets = () => {
  const [filteredData,setFilteredData]=useState([]);
   useEffect(() => {
     
-    axios.get("http://localhost:8080/dashboard/securities",{headers: {
+    axios.get("https://db-grads-0mjf-group-11.nw.r.appspot.com/dashboard/securities",{headers: {
       'Access-Control-Allow-Origin': '*'
     }}).then(
       res => {
@@ -119,7 +119,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
     setSecurity(securityObj);
     if(edit == true)
     {
-      axios.put(`http://localhost:8080/dashboard/security/${securityObj.id}`, securityObj,{headers: {
+      axios.put(`https://db-grads-0mjf-group-11.nw.r.appspot.com/dashboard/security/${securityObj.id}`, securityObj,{headers: {
         'Access-Control-Allow-Origin': '*'
       }}).then(
         res => {
@@ -132,7 +132,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
       )
     }
     else {
-      axios.post('http://localhost:8080/dashboard/security', securityObj,{headers: {
+      axios.post('https://db-grads-0mjf-group-11.nw.r.appspot.com/dashboard/security', securityObj,{headers: {
         'Access-Control-Allow-Origin': '*'
       }}).then(
         res => {
@@ -147,7 +147,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   }
 
   const fetchSecurityData = (id) => {
-    axios.get(`http://localhost:8080/dashboard/security/${id}`,{headers: {
+    axios.get(`https://db-grads-0mjf-group-11.nw.r.appspot.com/dashboard/security/${id}`,{headers: {
       'Access-Control-Allow-Origin': '*'
     }}).then(
       res => {
@@ -160,7 +160,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   }
 
   const deleteSecurity = () => {
-    axios.delete(`http://localhost:8080/dashboard/security/${security.id}`,{headers: {
+    axios.delete(`https://db-grads-0mjf-group-11.nw.r.appspot.com/dashboard/security/${security.id}`,{headers: {
       'Access-Control-Allow-Origin': '*'
     }}).then(
       res => {

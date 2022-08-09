@@ -52,7 +52,7 @@ export const Trade = (props) => {
  const { id } = useParams();
   useEffect(() => {
    
-    axios.get(`http://localhost:8080/dashboard/${id}/trades`,{headers: {
+    axios.get(`https://db-grads-0mjf-group-11.nw.r.appspot.com/dashboard/${id}/trades`,{headers: {
       'Access-Control-Allow-Origin': '*'
     }}).then(
       res => {
@@ -119,7 +119,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
     setTrade(tradeObj);
     if(edit==true)
     {
-      axios.put(`http://localhost:8080/dashboard/trade/${tradeObj.id}`, tradeObj,{headers: {
+      axios.put(`https://db-grads-0mjf-group-11.nw.r.appspot.com/dashboard/trade/${tradeObj.id}`, tradeObj,{headers: {
         'Access-Control-Allow-Origin': '*'
       }}).then(
         res => {
@@ -133,7 +133,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
       )
     }
     else {
-      axios.post('http://localhost:8080/dashboard/trade', trade,{headers: {
+      axios.post('https://db-grads-0mjf-group-11.nw.r.appspot.com/dashboard/trade', trade,{headers: {
         'Access-Control-Allow-Origin': '*'
       }}).then(
         res => {
@@ -148,7 +148,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   }
 
   const fetchTradeData = (id) => {
-    axios.get(`http://localhost:8080/dashboard/trade/${id}`,{headers: {
+    axios.get(`https://db-grads-0mjf-group-11.nw.r.appspot.com/dashboard/trade/${id}`,{headers: {
       'Access-Control-Allow-Origin': '*'
     }}).then(
       res => {
