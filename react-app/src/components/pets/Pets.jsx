@@ -127,6 +127,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
           {
             setSecurityDialog(false);
             setEdit(false);
+            window.location.reload();
           }
         }
       )
@@ -165,6 +166,7 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
     }}).then(
       res => {
         setDeleteSecurityDialog(false);
+        window.location.reload();
       })
   }
 
