@@ -52,7 +52,9 @@ export const Trade = (props) => {
  const { id } = useParams();
   useEffect(() => {
    
-    axios.get(`http://localhost:8080/dashboard/${id}/trades`).then(
+    axios.get(`http://localhost:8080/dashboard/${id}/trades`,{headers: {
+      'Access-Control-Allow-Origin': '*'
+    }}).then(
       res => {
         const temp= [];
           res.data.map((datas) => {
@@ -117,7 +119,9 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
     setTrade(tradeObj);
     if(edit==true)
     {
-      axios.put(`http://localhost:8080/dashboard/trade/${tradeObj.id}`, tradeObj ).then(
+      axios.put(`http://localhost:8080/dashboard/trade/${tradeObj.id}`, tradeObj,{headers: {
+        'Access-Control-Allow-Origin': '*'
+      }}).then(
         res => {
           if(res.data)
           {
@@ -129,7 +133,9 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
       )
     }
     else {
-      axios.post('http://localhost:8080/dashboard/trade', trade).then(
+      axios.post('http://localhost:8080/dashboard/trade', trade,{headers: {
+        'Access-Control-Allow-Origin': '*'
+      }}).then(
         res => {
           if(res.data)
           {
@@ -142,7 +148,9 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   }
 
   const fetchTradeData = (id) => {
-    axios.get(`http://localhost:8080/dashboard/trade/${id}`).then(
+    axios.get(`http://localhost:8080/dashboard/trade/${id}`,{headers: {
+      'Access-Control-Allow-Origin': '*'
+    }}).then(
       res => {
         var obj = res.data;
         obj.tradedate = moment(obj.tradedate).format(moment.HTML5_FMT.DATE); // 2019-11-08

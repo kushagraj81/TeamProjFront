@@ -31,7 +31,9 @@ export const TableProfile4 = (props) => {
  console.log(user1);
   useEffect(() => {
    
-    axios.get(`http://localhost:8080/profile/${user1.id}/trades`).then(
+    axios.get(`http://localhost:8080/profile/${user1.id}/trades`,{headers: {
+      'Access-Control-Allow-Origin': '*'
+    }}).then(
       res => {
         const temp= [];
           res.data.map((datas) => {

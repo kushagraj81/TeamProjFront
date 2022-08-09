@@ -52,7 +52,9 @@ export const Pets = () => {
  const [filteredData,setFilteredData]=useState([]);
   useEffect(() => {
     
-    axios.get("http://localhost:8080/dashboard/securities").then(
+    axios.get("http://localhost:8080/dashboard/securities",{headers: {
+      'Access-Control-Allow-Origin': '*'
+    }}).then(
       res => {
         const temp= [];
           res.data.map((datas) => {
@@ -117,7 +119,9 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
     setSecurity(securityObj);
     if(edit == true)
     {
-      axios.put(`http://localhost:8080/dashboard/security/${securityObj.id}`, securityObj).then(
+      axios.put(`http://localhost:8080/dashboard/security/${securityObj.id}`, securityObj,{headers: {
+        'Access-Control-Allow-Origin': '*'
+      }}).then(
         res => {
           if(res.data)
           {
@@ -128,7 +132,9 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
       )
     }
     else {
-      axios.post('http://localhost:8080/dashboard/security', securityObj).then(
+      axios.post('http://localhost:8080/dashboard/security', securityObj,{headers: {
+        'Access-Control-Allow-Origin': '*'
+      }}).then(
         res => {
           if(res.data)
           {
@@ -141,7 +147,9 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   }
 
   const fetchSecurityData = (id) => {
-    axios.get(`http://localhost:8080/dashboard/security/${id}`).then(
+    axios.get(`http://localhost:8080/dashboard/security/${id}`,{headers: {
+      'Access-Control-Allow-Origin': '*'
+    }}).then(
       res => {
         var obj = res.data;
         obj.maturitydate = moment(obj.maturitydate).format(moment.HTML5_FMT.DATE); // 2019-11-08
@@ -152,7 +160,9 @@ setFilteredData(year==='all'?empList:empList.filter(dt=>dt.year===year))
   }
 
   const deleteSecurity = () => {
-    axios.delete(`http://localhost:8080/dashboard/security/${security.id}`).then(
+    axios.delete(`http://localhost:8080/dashboard/security/${security.id}`,{headers: {
+      'Access-Control-Allow-Origin': '*'
+    }}).then(
       res => {
         setDeleteSecurityDialog(false);
       })
