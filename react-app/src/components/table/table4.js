@@ -31,7 +31,7 @@ export const TableProfile4 = (props) => {
  console.log(user1);
   useEffect(() => {
    
-    axios.get(`https://db-grads-0mjf-group-11.nw.r.appspot.com/profile/${user1.id}/trades`,{headers: {
+    axios.get(`https://db-grads-0mjf-group-11.nw.r.appspot.com/profile/${user1.id}/active`,{headers: {
       'Access-Control-Allow-Origin': '*'
     }}).then(
       res => {
